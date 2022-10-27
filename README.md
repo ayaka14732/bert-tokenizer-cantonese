@@ -1,5 +1,9 @@
 # BERT Tokenizer Cantonese
 
+## Motivation
+
+The Chinese BERT tokenizer is widely used among many Chinese NLP models, including the [Chinese BART model](https://huggingface.co/fnlp/bart-base-chinese). However, it cannot be directly applied to Cantonese because it is mainly designed to tokenise Simplified Chinese, whereas Hong Kong Cantonese is mainly written in Traditional Chinese. Moreover, it lacks those Chinese characters that are normally used only in Cantonese, such as '冧', '嚿' and '曱'. Therefore, this project provides a BERT Tokenizer with vocabulary tailored for Cantonese.
+
 ## Build
 
 ```sh
@@ -25,6 +29,6 @@ xz --decompress lihkg-1-2850000-processed-dedup.csv.xz
 python build_vocab_mapping.py
 python add_cantonese_tokens.py
 python replace_embedding.py
-python upload.py
+upload_to_hub.py
 # Manually upload `embed_params.dat` to `Ayaka/bart-base-cantonese`
 ```
